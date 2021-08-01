@@ -1,0 +1,34 @@
+public List<Employee> getList(List<Employee> emplist,char c) throws Exception {
+        List<Employee> resultList=new ArrayList<>();
+        try{for(Employee e: emplist) {
+            if(e.getEname().charAt(0)==c)
+            {
+                resultList.add(e);
+            }
+        }
+        if(resultList.isEmpty()) {
+            throw new Exception("List is empty");
+        }
+        }catch(Exception e){
+            LogFactory.getLog(this.getClass()).error(e.getMessage());
+        }
+        return resultList;
+    }
+
+#Name of the Properties file
+name=LoggerConfigFile
+#Declaring logger
+rootLogger.level=info
+rootLogger.appenderRef.file.ref=LoggerAppender
+# File Appender
+appender.file.name=LoggerAppender
+appender.file.type=File
+appender.file.fileName=log/ErrorLog.log
+#Logging Pattern
+appender.file.layout.type=PatternLayout
+appender.file.layout.pattern=%d{dd-MMM-yyyy HH:mm:ss} %level - %m%n
+
+
+
+https://infygithub.ad.infosys.com/FA2/FA2-SET-IntegratedAssignment
+
